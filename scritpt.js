@@ -8,12 +8,24 @@ for (let item of buttons) {
         let buttonText = e.target.innerText;
         console.log('button text is ', buttonText);
         if (buttonText === "pi") {
-            buttonText = Math.PI;
-
+            calculation = operation.innerText + operand.innerText;
+            calculation = eval(calculation);
+            let n = Math.PI;
+            calculation *= n;
+            operation.innerText = "";
+            operand.innerText = calculation;
+            calculation = '';
         }
-        if (buttonText === "e")
-            buttonText = Math.E;
-        if (buttonText === 'C') {
+        else if (buttonText === "e") {
+            calculation = operation.innerText + operand.innerText;
+            calculation = eval(calculation);
+            let n = Math.E;
+            calculation *= n;
+            operation.innerText = "";
+            operand.innerText = calculation;
+            calculation = '';
+        }
+        else if (buttonText === 'C') {
             operand.innerText = "";
             operation.innerText = "";
             calculation = '';
@@ -43,7 +55,7 @@ for (let item of buttons) {
             calculation = Math.cos(eval(calculation));
             operation.innerText = "";
             operand.innerText = calculation;
-            calculation = ''
+            calculation = '';
         }
         else if (buttonText === "ln") {
             calculation = operation.innerText + operand.innerText;
